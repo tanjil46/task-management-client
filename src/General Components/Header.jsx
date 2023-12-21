@@ -35,9 +35,9 @@ const Header = () => {
       </Navbar.Brand>
       <Navbar.Toggle />
       <Navbar.Collapse >
-       <div className="flex space-x-6 items-center">
-        <Link to='/'>Home</Link>
-      
+       <div className="flex md:space-x-6 md:flex-row md:space-y-0  space-y-6 text-center flex-col md:items-center">
+       
+       <Link to='/'>Home</Link>
         <Link >Contact Me</Link>
         {
           user?<Link to='/dashboard' >Dashboard</Link>:''
@@ -50,7 +50,7 @@ const Header = () => {
         }
         {
           user? <div className="">
-            <img className="w-[55px] rounded-full" src={user?.photoURL}></img>
+            <img className="w-[55px] rounded-full mx-auto" src={user?.photoURL}></img>
           </div>:''
         }
         </div>

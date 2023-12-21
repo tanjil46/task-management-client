@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import useAuth from "../Hooks/useAuth";
 import useAxios from "../Hooks/useAxios";
+import Swal from "sweetalert2";
 
 
 const CreateTask = () => {
@@ -13,11 +14,22 @@ const CreateTask = () => {
  const date=data.date 
  const priority=data.priority 
  const desc=data.desc
+ const status='todo'
+ const taskInfo={email,title,date,priority,desc,status}
+console.log(taskInfo)
 
 
-
-
-
+const res=await axiosPublic.post('/task',taskInfo)
+console.log(res.data)
+if(res.data.insertedId){
+    reset()
+    Swal.fire(
+        'suceess',
+        'Task Uploaded Successfully',
+        'success'
+        
+    )
+}
 
  }
 
@@ -28,7 +40,7 @@ const CreateTask = () => {
         <div>
             
             <div className="bg-slate-500">
-
+           <p className="text-xl text-white text-center ">Create Your Task</p>
             <form className="p-12" onSubmit={handleSubmit(onSubmit)}>
 
 

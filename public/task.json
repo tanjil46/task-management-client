@@ -1,0 +1,33 @@
+[
+    {
+      "name": "Developers",
+      "benefit": "Improve your coding skills and efficiency with our task-oriented coding challenges and tutorials. Stay up-to-date on the latest development tools and frameworks.",
+      "task": "Solve coding challenges, participate in hackathons, learn new programming languages"
+    },
+    {
+      "name": "Bankers",
+      "benefit": "Enhance your financial analysis skills and regulatory knowledge through specialized tasks and case studies. Stay informed about market trends and economic indicators.",
+      "task": "Conduct financial analysis, stay updated on regulatory changes, analyze market trends"
+    },
+    {
+      "name": "Project Managers",
+      "benefit": "Optimize your project management skills with practical tasks and real-world project scenarios. Learn effective team collaboration and leadership strategies.",
+      "task": "Plan and execute projects, lead teams, enhance project management skills"
+    },
+    {
+      "name": "Data Analysts",
+      "benefit": "Sharpen your data analysis skills by working on real-world datasets and projects. Stay informed about the latest data visualization tools and techniques.",
+      "task": "Analyze datasets, create data visualizations, stay updated on data analytics tools"
+    },
+    {
+      "name": "Marketing Professionals",
+      "benefit": "Boost your marketing expertise with hands-on tasks related to digital marketing, SEO, and social media. Stay ahead in the ever-evolving landscape of digital marketing.",
+      "task": "Create digital marketing campaigns, optimize SEO strategies, manage social media channels"
+    },
+    {
+      "name": "UX/UI Designers",
+      "benefit": "Refine your design skills by undertaking UX/UI design tasks and challenges. Stay updated on the latest design trends and user experience principles.",
+      "task": "Create wireframes, design user interfaces, stay informed about design trends"
+    }
+  ]
+  

@@ -2,12 +2,14 @@ import { useForm } from "react-hook-form";
 import useAuth from "../Hooks/useAuth";
 import Swal from "sweetalert2";
 import GoogleLogin from "./GoogleLogin";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 const Login = () => {
     const { register, handleSubmit,reset } = useForm()
     const{userSingIn}=useAuth()
-
+    const navigate=useNavigate()
+    const location=useLocation()
     const onSubmit=async(data)=>{
      const email=data.email
      const password=data.password
@@ -21,6 +23,7 @@ const Login = () => {
         'Succesfully Log In',
         'success'
       )
+      navigate(location?.state? location.state:'/')
      })
      .catch(error=>{
       console.log(error.message)

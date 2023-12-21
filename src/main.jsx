@@ -11,9 +11,12 @@ import Login from './General Components/Login'
 import Dashboard from './Dashboard/Dashboard'
 import Profile from './Dashboard/Profile'
 import CreateTask from './Dashboard/CreateTask'
+import ManageTask from './Dashboard/ManageTask'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import PrivateRoute from './General Components/PrivateRoute'
 
 
-
+const queryClient = new QueryClient()
  const router=createBrowserRouter([
      {
       path:'/',
@@ -36,7 +39,7 @@ import CreateTask from './Dashboard/CreateTask'
      {
        
       path:'dashboard',
-      element:<Dashboard></Dashboard>,
+      element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children:[
         {
           path:'profile',
@@ -45,6 +48,10 @@ import CreateTask from './Dashboard/CreateTask'
         {
           path:'create',
           element:<CreateTask></CreateTask>
+        },
+        {
+          path:'manage',
+          element:<ManageTask></ManageTask>
         }
       ]
 
@@ -82,9 +89,11 @@ import CreateTask from './Dashboard/CreateTask'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Authprovider>
+    <QueryClientProvider client={queryClient}>
     <div className="max-w-6xl mx-auto">
       <RouterProvider router={router}></RouterProvider>
     </div>
+    </QueryClientProvider>
     </Authprovider>
   </React.StrictMode>,
 )

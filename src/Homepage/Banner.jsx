@@ -4,14 +4,24 @@ import bannerTask from '../img/66637589-tasks-text-rubber-seal-stamp-watermark-c
 import { MdOutlineArrowRightAlt } from "react-icons/md";
 import { Link } from 'react-router-dom';
 const Banner = () => {
+
+  
+ const backGroundImage={
+  backgroundImage:`url(${bannerTask})`,
+  backgroundSize:'96%'
+
+
+
+
+ }
     return (
         <div>
-          <div className="hero h-screen bg-no-repeat bg-cover" style={{backgroundImage: `url(${bannerTask})`}}>
-  <div className="hero-overlay bg-opacity-60"></div>
+          <div className="hero h-screen bg-no-repeat bg-cover" style={backGroundImage}>
+  <div className="hero-overlay bg-opacity-40"></div>
   <div className="hero-content text-center text-neutral-content">
     <div className="max-w-md">
-      <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-      <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+      <h1 className="mb-5 text-5xl font-bold">Make Your Work Easy</h1>
+      
     <Link to='/login'> <Button  className='mx-auto'>
        Lets Explore
         <MdOutlineArrowRightAlt className='text-2xl'></MdOutlineArrowRightAlt>
