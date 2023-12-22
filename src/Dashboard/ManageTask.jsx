@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import useAxios from "../Hooks/useAxios";
 import { useQuery } from "@tanstack/react-query";
 import SeparateTask from "./SeparateTask";
+import useAuth from "../Hooks/useAuth";
 
 
 const ManageTask = () => {
@@ -11,11 +12,11 @@ const[ongoing,setOngoing]=useState([])
 const[completed,setCompleted]=useState([])
  const[allTaks,setAllTaks]=useState([])
 const axiosPublic=useAxios()
-
+const{user}=useAuth()
   const{data:tasks=[],refetch}=useQuery({
-    queryKey:['tasks'],
+    queryKey:['tasks',user?.email],
     queryFn:async()=>{
-     const res=await axiosPublic.get('/task')
+     const res=await axiosPublic.get(`/task/${user?.email}`)
      return res.data
     }
   })
@@ -52,7 +53,8 @@ console.log(tasks)
 
     return (
         <div>
-            <div className="flex justify-center gap-8 m-5">
+          <p className="md:text-2xl text-center my-8">Manage Your Task</p>
+            <div className="flex justify-around gap-8 m-5">
            {
             statuses.map((sta,idx)=><SeparateTask setAllTaks={setAllTaks} allTaks={allTaks} tasks={tasks} todo={todo} ongoing={ongoing} completed={completed} key={idx} refetch={refetch} sta={sta}></SeparateTask>)
            } 

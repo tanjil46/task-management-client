@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types';
 
 const Showunique = ({review}) => {
     const{name,benefit,task}=review
@@ -11,4 +11,10 @@ const Showunique = ({review}) => {
     );
 };
 
+
+Showunique.propTypes={
+  review:PropTypes.object,
+        
+        
+     }
 export default Showunique;

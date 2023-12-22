@@ -14,6 +14,7 @@ import CreateTask from './Dashboard/CreateTask'
 import ManageTask from './Dashboard/ManageTask'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import PrivateRoute from './General Components/PrivateRoute'
+import Contact from './General Components/Contact'
 
 
 const queryClient = new QueryClient()
@@ -33,6 +34,10 @@ const queryClient = new QueryClient()
        {
         path:'/login',
         element:<Login></Login>
+       },
+       {
+        path:'/contact',
+        element:<Contact></Contact>
        }
      ]
      },

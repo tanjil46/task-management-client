@@ -1,10 +1,11 @@
 import { useDrop } from "react-dnd";
 import ShowTasks from "./ShowTasks";
-import { useState } from "react";
+
 import useAxios from "../Hooks/useAxios";
+import PropTypes from 'prop-types';
 
 
-const SeparateTask = ({sta,tasks,todo,completed,ongoing,refetch,setAllTaks, allTaks }) => {
+const SeparateTask = ({sta,todo,completed,ongoing,refetch,setAllTaks }) => {
     const axiosPublic=useAxios()
     const [{ isOver }, drop] = useDrop(() => ({
         accept: 'task',
@@ -47,13 +48,13 @@ const modifiedTask=prev.map(pre=>{
 })
 
 
-// axiosPublic.post(`/task`,modifiedTask)
-// .then(res=>{
-//     console.log(res.data)
-// })
+axiosPublic.put(`/task/${id}`,modifiedTask)
+.then(res=>{
+    console.log(res.data)
+})
 
 
-console.log(prev)
+console.log(modifiedTask)
 
 
 
@@ -79,7 +80,7 @@ return modifiedTask
 
     return (
         <div ref={drop} className={`${isOver?'bg-slate-400':''}`}>
-            <p className={`${bg} p-2 w-[160px] rounded-2xl text-center text-white`}>{text}<span className="bg-white rounded-full  text-black">{taskmap.length}</span></p>
+            <p className={`${bg} p-2 w-[160px] rounded-2xl text-center text-white`}>{text} <span className="bg-white rounded-full  text-black">{taskmap.length}</span></p>
            <div  className="">
             {
                 taskmap.map(task=><ShowTasks refetch={refetch} key={task._Id} task={task}></ShowTasks>)
@@ -89,4 +90,17 @@ return modifiedTask
     );
 };
 
+
+SeparateTask.propTypes={
+ sta:PropTypes.object,
+ todo:PropTypes.array,
+ ongoing:PropTypes.array,
+ completed:PropTypes.array,
+ setAllTaks:PropTypes.array,
+ allTaks:PropTypes.array,
+ refetch:PropTypes.func
+        
+        
+     }
+      
 export default SeparateTask;

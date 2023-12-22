@@ -15,14 +15,14 @@ const CreateTask = () => {
  const priority=data.priority 
  const desc=data.desc
  const status='todo'
- const taskInfo={email,title,date,priority,desc,status}
-console.log(taskInfo)
+const taskInfo={email,title,date,priority,desc,status}
+
 
 
 const res=await axiosPublic.post('/task',taskInfo)
 console.log(res.data)
 if(res.data.insertedId){
-    reset()
+   reset()
     Swal.fire(
         'suceess',
         'Task Uploaded Successfully',

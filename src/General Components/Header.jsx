@@ -38,9 +38,9 @@ const Header = () => {
        <div className="flex md:space-x-6 md:flex-row md:space-y-0  space-y-6 text-center flex-col md:items-center">
        
        <Link to='/'>Home</Link>
-        <Link >Contact Me</Link>
+        <Link to='/contact' >Contact Us</Link>
         {
-          user?<Link to='/dashboard' >Dashboard</Link>:''
+          user?<Link to='/dashboard/profile' >Dashboard</Link>:''
         }
         {
           user?'':<Link to='/resister' >Resister</Link>
